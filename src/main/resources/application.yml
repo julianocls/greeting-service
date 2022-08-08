@@ -14,8 +14,13 @@ management:
   endpoints:
     web:
       exposure:
-        include:
-        - '*'
+        include: health
+        exclude: dev,beans,info
+  endpoint:
+    health:
+      enabled: true
+      status:
+        order: UP,DOWN,OUT_OF_SERVICE,UNKNOWN
 
 greeting-service:
   greeting: "Ola"
